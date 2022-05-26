@@ -2,6 +2,8 @@ import pygame
 
 pygame.init()
 
+pygame.mixer.music.load(r"C:\Users\Roma.S\Documents\pong\pong\sounds\music.mp3")
+
 WIDTH, HEIGHT = 700, 500
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Pong")
@@ -141,9 +143,13 @@ def main():
     left_score = 0
     right_score = 0
 
-
+    pygame.mixer.music.play(loops=-1, start=0.0, fade_ms=0)
+    pygame.mixer.music.set_volume(0.5) 
+    
     while run:
+        
         clock.tick(FPS)
+        
         draw(WIN, [left_paddle, right_paddle], ball, left_score, right_score)
 
         for event in pygame.event.get():
