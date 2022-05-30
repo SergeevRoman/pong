@@ -8,7 +8,7 @@ a = Analysis(
     ['solution.py'],
     pathex=[],
     binaries=[],
-    datas=[],
+    datas=[('winnning.ogg', 'sounds')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},

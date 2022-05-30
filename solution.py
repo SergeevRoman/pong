@@ -3,9 +3,9 @@ pygame.mixer.pre_init(44100, -16, 1, 512)
 
 pygame.init()
 
-pygame.mixer.music.load(r"C:\Users\Roma.S\Documents\pong\pong\sounds\music.mp3") #фоновая музыка которая будет играть
-pygame.mixer.music.play(loops=-1, start=0.0, fade_ms=0) #запуск фоновой музыки
-pygame.mixer.music.set_volume(0) #громкость фоновой музыки
+#pygame.mixer.music.load(r"C:\Users\Roma.S\Documents\pong\pong\sounds\music.mp3") #фоновая музыка которая будет играть
+#pygame.mixer.music.play(loops=-1, start=0.0, fade_ms=0) #запуск фоновой музыки
+#pygame.mixer.music.set_volume(0) #громкость фоновой музыки
 
 s = pygame.mixer.Sound(r"C:\Users\Roma.S\Documents\pong\pong\sounds\winnning.ogg") #звук который будет играться при ударе об ракетку
 
@@ -106,7 +106,7 @@ def handle_collision(ball, left_paddle, right_paddle):
     if ball.x_vel < 0:
         if ball.y >= left_paddle.y and ball.y <= left_paddle.y + left_paddle.height:
             if ball.x - ball.radius <= left_paddle.x + left_paddle.width:
-                #s.play() #добавление звука для удара по левой ракетке. Loops = 0 означает проигрыш 1 раз. 
+                s.play() #добавление звука для удара по левой ракетке. Loops = 0 означает проигрыш 1 раз. 
                 ball.x_vel *= -1
 
                 middle_y = left_paddle.y + left_paddle.height / 2
@@ -118,7 +118,7 @@ def handle_collision(ball, left_paddle, right_paddle):
     else:
         if ball.y >= right_paddle.y and ball.y <= right_paddle.y + right_paddle.height:
             if ball.x +ball.radius >= right_paddle.x:
-                #s.play() #добавление звука для удара по правой ракетке
+                s.play() #добавление звука для удара по правой ракетке
                 ball.x_vel *= -1
 
                 middle_y = right_paddle.y + right_paddle.height / 2
@@ -175,7 +175,7 @@ def main():
             right_score += 1
             ball.reset()
         elif ball.x > WIDTH:
-            s.play() # звук приулете шарика мимо правого игрока
+            #s.play() # звук приулете шарика мимо правого игрока
             left_score += 1
             ball.reset()
 
